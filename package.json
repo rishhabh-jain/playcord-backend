@@ -4,7 +4,8 @@
   "description": "this is  my personal project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node server.js"
   },
   "author": "rishabh jain",
   "license": "ISC",
@@ -15,5 +16,8 @@
     "mongoose": "^5.10.13",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"
+  },
+  "engines": {
+    "node": "12.16.1"
   }
 }

@@ -11,28 +11,27 @@ connectDB()
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 require('./config/passport')(passport)
-const PORT = process.env.PORT || 3000 
+const PORT = process.env.PORT || 5000 
 app.use(passport.initialize())
 app.use(passport.session())
 router.get('/' , (req, res)=>{
     res.send('this is my backend');
 })
 app.use(
-    session({
+  session({
       secret: 'keyboard cat',
       resave: false,
       saveUninitialized: false,
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
-    })
-  )
-  
-
+  })
+)
 
 app.use('/' , require('./routes/index.js'))
 app.use('/auth' ,require('./routes/auth'))
+app.use('/authentication' ,require('./routes/authentication'))
 
 app.listen(
-    process.env.PORT || 5000,
+    PORT,
     console.log(`Server running  on port ${PORT}`)
 )
   

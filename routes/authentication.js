@@ -1,16 +1,12 @@
 const express = require("express")
-
+const { ensureAuth ,ensureGuest} = require('../middleware/auth')
 const router = express.Router()
 
-router.get('/' , (req, res)=>{
-    res.send('this is my backend');
-})
-router.get('/done' ,  (req, res)=>{
+router.get('/done' , ensureAuth , (req, res)=>{
     res.send('authentication done');
 })
  
-router.get('/notdone',  (req , res) => {
+router.get('/notdone',ensureGuest ,  (req , res) => {
     res.send('authentication not done')
 })
- 
 module.exports = router
