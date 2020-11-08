@@ -29,6 +29,7 @@ app.use(
 app.use('/' , require('./routes/index.js'))
 app.use('/auth' ,require('./routes/auth'))
 app.use('/authentication' ,require('./routes/authentication'))
+app.use('/firstform' , require('./routes/form.js'))
 
 app.listen(
     PORT,
